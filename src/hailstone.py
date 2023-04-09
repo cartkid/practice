@@ -1,4 +1,4 @@
-def hailstone(n: int) -> int:
+def hailstone(n: float) -> int:
     print(f"{n}: ")
     count = 0
     if n == 0:
