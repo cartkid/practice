@@ -1,2 +1,5 @@
 pytest==6.2.4
-pytest-asyncio==0.16.0
+
+# To fix module 'pyflakes.messages' has no attribute 'RedefinedInListComp'
+pyflakes==3.0.1
+pycodestyle==2.10.0
