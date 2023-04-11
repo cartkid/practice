@@ -5,9 +5,6 @@ def sanitize(input: str) -> list[int]:
     return_me: list[int] = []
 
     lst = input.split(",")
-    lst_of_numbers_as_string = list(filter(lambda item: item.strip().isnumeric(), lst))
-    lst_of_numbers = list(map(lambda item: int(item), lst_of_numbers_as_string))
-    return_me = list(set(lst_of_numbers))
+    return_me = list(set([int(x) for x in lst if x.strip().isnumeric()]))
     return_me.sort()
-
     return return_me
