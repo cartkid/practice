@@ -122,7 +122,7 @@ def test_menu_get_price0():
     beverages.children.append(tree_traversal.MenuItem("Coffee", 2.49))
     root.children.append(beverages)
 
-    menu_item_price = tree_traversal.getPrice(
+    menu_item_price = tree_traversal.get_price(
         [root_empty, root], tree_traversal.MenuItem(name="Chocolate", price=None)
     )
 
