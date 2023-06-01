@@ -19,28 +19,18 @@ class Defect:
 def get_farm_panels_with_high_pri_defects(
     farm_panels: List[SolarPanel], defects: List[Defect]
 ) -> List[SolarPanel]:
-    high_priority_panel_defects = set()
-    for defect in defects:
-        if defect.priority != "high":
-            continue
-        high_priority_panel_defects.add(defect.solar_panel_id)
-
-    farm_panels_with_high_pri_defects: List[SolarPanel] = []
-    for panel in farm_panels:
-        if panel.id in high_priority_panel_defects:
-            farm_panels_with_high_pri_defects.append(panel)
-
-    return farm_panels_with_high_pri_defects
+    high_priority_defects = set(
+        defect.solar_panel_id for defect in defects if defect.priority == "high"
+    )
+    return [panel for panel in farm_panels if panel.id in high_priority_defects]
 
 
 def get_defects_per_manufacturer(
     farm_panels: List[SolarPanel], defects: List[Defect]
 ) -> Dict[str, int]:
-    high_priority_defects = set()
-    for defect in defects:
-        if defect.priority != "high":
-            continue
-        high_priority_defects.add(defect.solar_panel_id)
+    high_priority_defects = set(
+        defect.solar_panel_id for defect in defects if defect.priority == "high"
+    )
 
     manufacture_defect_count: Dict[str, int] = {}
     for panel in farm_panels:
