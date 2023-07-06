@@ -4,3 +4,4 @@ new_file.txt
 practice-env
 practice_env
 .DS_Store
+**/__pycache__/**
